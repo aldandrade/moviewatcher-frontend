@@ -40,6 +40,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 const MaterialComponents = [MatToolbarModule,
                             MatTableModule,
@@ -53,7 +54,8 @@ const MaterialComponents = [MatToolbarModule,
                             MatIconModule,
                             MatInputModule,
                             MatListModule,
-                            MatGridListModule]
+                            MatGridListModule,
+                            FlexLayoutModule];
 
 @NgModule({
   declarations: [],

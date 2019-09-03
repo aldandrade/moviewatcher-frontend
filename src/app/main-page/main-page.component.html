@@ -2,8 +2,8 @@
   <div> MovieWatcher </div>
   <div class="searchClass">
     <mat-form-field class="searchBar">
-     <input matInput type="text" placeholder="Type a title" [(ngModel)]="value">
-      <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+     <input matInput type="text" placeholder="" [(ngModel)]="movieTitle" (keydown.enter)= "search($movieTitle)">
+      <button mat-button *ngIf="movieTitle" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
@@ -16,5 +16,7 @@
 </mat-toolbar>
 
 <div class="mat-display-3">MovieWatcher</div>
+
+
 
 

@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'watcher-frontend';
+  public movieTitle = '';
+  searchMovies(movtitle: string) {
+    this.movieTitle = movtitle;
+  }
 }

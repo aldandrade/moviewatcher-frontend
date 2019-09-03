@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { MovieServiceService } from '../services/movie-service.service';
 
 @Component({
   selector: 'app-main-page',
@@ -6,10 +7,11 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent implements OnInit {
-  value = '';
-  constructor() { }
+  movieTitle = '';
+  constructor(private movieSearch: MovieServiceService) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  search(): void {
+    }
   }
-
-}

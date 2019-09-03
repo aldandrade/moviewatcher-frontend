@@ -8,18 +8,23 @@ import { MaterialModule } from './material/material.module';
 import { MainPageComponent } from './main-page/main-page.component';
 import { MovieServiceService } from './services/movie-service.service';
 import { FormsModule } from '@angular/forms';
-
+import { MovieGridComponent } from './movie-grid/movie-grid.component';
+import { MovieCardComponent } from './movieGrid/movie-card.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    MainPageComponent
+    MainPageComponent,
+    MovieGridComponent,
+    MovieCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [MovieServiceService],
   bootstrap: [AppComponent]
