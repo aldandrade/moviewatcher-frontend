@@ -1,0 +1,20 @@
+<mat-toolbar color="primary" class="navbar">
+  <div> MovieWatcher </div>
+  <div class="searchClass">
+    <mat-form-field class="searchBar">
+     <input matInput type="text" placeholder="Type a title" [(ngModel)]="value">
+      <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    </div>
+  <div>
+    <button mat-raised-button color="accent">Search</button>
+    <button mat-raised-button color="accent">Favorites</button>
+    <button mat-raised-button color="accent">About</button>
+  </div>
+</mat-toolbar>
+
+<div class="mat-display-3">MovieWatcher</div>
+
+

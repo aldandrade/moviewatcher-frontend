@@ -1,0 +1,26 @@
+.navbar {
+  justify-content: space-between;
+}
+button{
+  margin-right: 1rem;
+}
+span{
+  padding: 1rem;
+  padding-block-end: 1rem;
+}
+
+.mat-display-3
+ {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 500px;
+   height: 500px;
+   margin-top: -120px; /* Half the height */
+   margin-left: -200px; /* Half the width */
+ }
+
+ .searchClass {
+  display: flex;
+  flex-direction: column;
+ }
