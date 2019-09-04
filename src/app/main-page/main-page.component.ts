@@ -15,12 +15,16 @@ export class MainPageComponent implements OnInit {
    }
 
   ngOnInit() { }
-
+  searchFilter(movie:MovieModel, index, array){
+    if (movie.title.toLowerCase().includes(this.movieTitle.toLowerCase())) {
+      return movie;
+    }
+  }
   search(movieTitle: string): void {
-    console.log('We also got here');
     this.movieSearch.getFromMovies(this.movieTitle).subscribe(
       (response: MovieModel[]) => this.handleMovieResponse(response),
       error => console.log(error));
+    this.movieList = this.movieList.filter(mov => mov.title.toLowerCase().includes(movieTitle.toLowerCase()));
   }
   handleMovieResponse(response: MovieModel[]) {
     this.movieList = response;

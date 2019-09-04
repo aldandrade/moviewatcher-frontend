@@ -16,8 +16,8 @@
 </mat-toolbar>
 
 <div class="mat-display-3">MovieWatcher</div>
-<mat-grid-list class= "grid" cols="5" rowHeight="100px" rowWidth="150px">
-    <mat-card *ngFor="let movie of movieList" class="movie-card mat-elevation-z10">
+<mat-grid-list class= "grid" cols="3" rowWidth="350px" rowHeight="350px">
+    <mat-grid-tile *ngFor="let movie of movieList" class="movie-card mat-elevation-z10">
 
         <mat-card-header>
 
@@ -39,7 +39,7 @@
 
         </mat-card-actions>
 
-    </mat-card>
+    </mat-grid-tile>
 </mat-grid-list>
 <router-outlet></router-outlet>
 
