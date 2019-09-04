@@ -11,12 +11,18 @@ import { FormsModule } from '@angular/forms';
 import { MovieGridComponent } from './movie-grid/movie-grid.component';
 import { MovieCardComponent } from './movieGrid/movie-card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ErrorPageComponentComponent } from './error-page-component/error-page-component.component';
+import { AboutPageComponentComponent } from './about-page-component/about-page-component.component';
+import { MoviePageComponent } from './movie-page/movie-page.component';
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
     MovieGridComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    ErrorPageComponentComponent,
+    AboutPageComponentComponent,
+    MoviePageComponent
   ],
   imports: [
     BrowserModule,
