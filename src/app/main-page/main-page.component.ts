@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MovieServiceService } from '../services/movie-service.service';
+import { MovieModel } from '../movie.model';
 
 @Component({
   selector: 'app-main-page',
@@ -8,10 +9,22 @@ import { MovieServiceService } from '../services/movie-service.service';
 })
 export class MainPageComponent implements OnInit {
   movieTitle = '';
-  constructor(private movieSearch: MovieServiceService) { }
+  movieList: MovieModel[];
+  constructor(private movieSearch: MovieServiceService) {
+    this.movieList = [];
+   }
 
   ngOnInit() { }
 
-  search(): void {
-    }
+  search(movieTitle: string): void {
+    console.log('We also got here');
+    this.movieSearch.getFromMovies(this.movieTitle).subscribe(
+      (response: MovieModel[]) => this.handleMovieResponse(response),
+      error => console.log(error));
   }
+  handleMovieResponse(response: MovieModel[]) {
+    this.movieList = response;
+    console.log(response);
+  }
+}
+

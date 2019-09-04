@@ -28,3 +28,7 @@ span{
 {
   width: 440px;
 }
+
+.grid{
+  max-width: 25%;
+}

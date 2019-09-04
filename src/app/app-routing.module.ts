@@ -7,6 +7,7 @@ import { MoviePageComponent } from './movie-page/movie-page.component';
 
 
 const routes: Routes = [
+  {path: '', redirectTo: 'search', pathMatch: 'full'},
   {path: 'search', component: MainPageComponent},
   {path: '**', component: ErrorPageComponentComponent},
   {path: 'about', component: AboutPageComponentComponent},

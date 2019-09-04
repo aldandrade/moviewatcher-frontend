@@ -11,25 +11,14 @@ import { MainPageComponent } from '../main-page/main-page.component';
 export class MovieCardComponent implements OnInit, AfterViewInit {
   @ViewChild(MainPageComponent, {read: '', static: false}) mainChild: MainPageComponent;
   movieTitle = '';
-  movieList: MovieModel[];
-  constructor(private movieService: MovieServiceService) {
-    this.movieList = [];
+
+  constructor() {
+
    }
 
   ngOnInit() {
   }
   ngAfterViewInit(): void {
-    this.movieTitle = this.mainChild.movieTitle;
-    this.search(this.movieTitle);
   }
-  search(movieTitle: string): void {
-    console.log('We also got here');
-    this.movieService.getFromMovies(this.movieTitle).subscribe(
-      (response: MovieModel[]) => this.handleMovieResponse(response),
-      error => console.log(error));
-  }
-  handleMovieResponse(response: MovieModel[]) {
-    this.movieList = response;
-    console.log(response);
-  }
+
 }
