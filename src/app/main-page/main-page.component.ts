@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { MovieServiceService } from '../services/movie-service.service';
 import { MovieModel } from '../movie.model';
 
@@ -24,7 +24,7 @@ export class MainPageComponent implements OnInit {
     this.movieSearch.getFromMovies(this.movieTitle).subscribe(
       (response: MovieModel[]) => this.handleMovieResponse(response),
       error => console.log(error));
-    this.movieList = this.movieList.filter(mov => mov.title.toLowerCase().includes(movieTitle.toLowerCase()));
+    console.log(this.movieSearch.getMoviesCount(movieTitle));
   }
   handleMovieResponse(response: MovieModel[]) {
     this.movieList = response;

@@ -16,7 +16,7 @@
 </mat-toolbar>
 
 <div class="mat-display-3">MovieWatcher</div>
-<mat-grid-list class= "grid" cols="3" rowWidth="350px" rowHeight="350px">
+<mat-grid-list class= "grid" cols="5" rowWidth="350px" rowHeight="350px">
     <mat-grid-tile *ngFor="let movie of movieList" class="movie-card mat-elevation-z10">
 
         <mat-card-header>
@@ -24,16 +24,18 @@
             <mat-card-title>{{movie.title}}</mat-card-title>
 
         </mat-card-header>
-
-        <img mat-card-image [src]="movie.posterLink">
-
+        <a [routerLink]= "['/movie', movie.id]">
+        <div>
+        <img mat-card-image  [src]="movie.posterLink">
+        </div>
+        </a>
         <mat-card-content>
             <p>{{movie.title}}</p>
         </mat-card-content>
 
-        <mat-card-actions class="course-actions">
+        <mat-card-actions class="movie-actions">
 
-            <button mat-button class="mat-raised-button mat-primary" [routerLink]="['/courses', movie.id]">
+            <button mat-button class="mat-raised-button mat-primary" [routerLink]="['/movie', movie.id]">
                 VIEW MOVIE
             </button>
 

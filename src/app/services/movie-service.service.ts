@@ -20,4 +20,7 @@ export class MovieServiceService {
   getFromMovies(movieTitle: string) {
     return this.http.get('api/movies', { params: { title: movieTitle } });
   }
+  getMoviesCount(movieTitle: string) {
+  return this.http.get('api/movies/count', { params: { title: movieTitle } });
+}
 }
