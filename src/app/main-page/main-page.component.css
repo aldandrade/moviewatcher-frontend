@@ -12,8 +12,8 @@ span{
 .mat-display-3
  {
    position: absolute;
-   top: 50%;
-   left: 50%;
+   top: 6em;
+   left: 15em;
    width: 500px;
    height: 500px;
    margin-top: -180px; /* Half the height */
@@ -29,8 +29,7 @@ span{
   width: 440px;
 }
 
-.grid{
-  max-width: 75%;
-  justify-content: center;
-
+.movieCard {
+  width: 100%;
+  margin-bottom: 18%;
 }

@@ -1,3 +1,5 @@
+<div fxFlexFill fxLayout="column">
+
 <mat-toolbar color="primary" class="navbar">
   <div> MovieWatcher </div>
   <div class="searchClass">
@@ -15,34 +17,39 @@
   </div>
 </mat-toolbar>
 
-<div class="mat-display-3">MovieWatcher</div>
-<mat-grid-list class= "grid" cols="5" rowWidth="350px" rowHeight="350px">
-    <mat-grid-tile *ngFor="let movie of movieList" class="movie-card mat-elevation-z10">
-
+<div fxLayout="column" class="mat-display-3">
+  <mat-row>MovieWatcher</mat-row>
+</div>
+<div class = "gridDiv" xLayout="column"  fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center" >
+    <mat-card *ngFor="let movie of movieList" class="movie-card mat-elevation-z10">
+      <div>
+      <mat-card class="movie-card">
         <mat-card-header>
-
-            <mat-card-title>{{movie.title}}</mat-card-title>
-
+            <mat-card-title fxLayout.xs="column" > <span fxFlexFill>{{movie.title}}</span></mat-card-title>
         </mat-card-header>
-        <a [routerLink]= "['/movie', movie.id]">
-        <div>
-        <img mat-card-image  [src]="movie.posterLink">
-        </div>
-        </a>
+        <div fxFlexFill fxLayout.xs="column" fxLayout="row">
+        <img mat-card-image  [src]="movie.posterLink" alt="{{movie.title}}">
+      </div>
         <mat-card-content>
             <p>{{movie.title}}</p>
         </mat-card-content>
-
-        <mat-card-actions class="movie-actions">
-
-            <button mat-button class="mat-raised-button mat-primary" [routerLink]="['/movie', movie.id]">
+        <mat-card-actions  fxLayout.xs="column" class="movie-actions">
+            <button mat-button class="mat-raised-button mat-primary" [routerLink]="['/movie', movie?.id]">
                 VIEW MOVIE
             </button>
-
+            <mat-icon fxal>star</mat-icon>
         </mat-card-actions>
-
-    </mat-grid-tile>
-</mat-grid-list>
+      </mat-card>
+    </div>
+  </mat-card>
+</div>
+<mat-paginator
+ [length]="movieCount"
+ [pageSize]="10"
+ (page)= "pageEvent = $event"
+>
+</mat-paginator>
+</div>
 <router-outlet></router-outlet>
 
 
