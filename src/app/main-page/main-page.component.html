@@ -28,7 +28,16 @@
             <mat-card-title fxLayout.xs="column" > <span fxFlexFill>{{movie.title}}</span></mat-card-title>
         </mat-card-header>
         <div fxFlexFill fxLayout.xs="column" fxLayout="row">
-        <img mat-card-image  [src]="movie.posterLink" alt="{{movie.title}}">
+          <ng-container *ngIf="movie.posterLink != ''; then thenTemplate; else elseTemplate"></ng-container>
+          <ng-template #thenTemplate>
+              <img mat-card-image class = "poster"  [src]="movie.posterLink" alt="{{movie.title}}">
+          </ng-template>
+          <ng-template #elseTemplate>
+
+              <img mat-card-image class = "poster"  src="../../assets/thomaz.jpg" alt="No poster image">
+          </ng-template>
+
+
       </div>
         <mat-card-content>
             <p>{{movie.title}}</p>
