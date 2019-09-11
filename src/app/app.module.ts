@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ErrorPageComponentComponent } from './error-page-component/error-page-component.component';
 import { AboutPageComponentComponent } from './about-page-component/about-page-component.component';
 import { MoviePageComponent } from './movie-page/movie-page.component';
+
 @NgModule({
   declarations: [
     AppComponent,

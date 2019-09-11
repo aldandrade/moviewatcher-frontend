@@ -34,7 +34,7 @@
             <p>{{movie.title}}</p>
         </mat-card-content>
         <mat-card-actions  fxLayout.xs="column" class="movie-actions">
-            <button mat-button class="mat-raised-button mat-primary" [routerLink]="['/movie', movie?.id]">
+            <button mat-button class="mat-raised-button mat-primary" (click)="goToMovie(movie.id)">
                 VIEW MOVIE
             </button>
             <mat-icon fxal>star</mat-icon>
@@ -46,8 +46,7 @@
 <mat-paginator
  [length]="movieCount"
  [pageSize]="10"
- (page)= "pageEvent = $event"
->
+ (page)= "pageEvent = onPageEvent($event)">
 </mat-paginator>
 </div>
 <router-outlet></router-outlet>

@@ -18,9 +18,16 @@ export class MovieServiceService {
     this.listener.next(filterBy);
  }
   getFromMovies(movieTitle: string) {
-    return this.http.get('api/movies', { params: { title: movieTitle } });
+    return this.http.get('api/movies', { params: { s: movieTitle } });
+  }
+  getNextPage(movieTitle: string, page: number) {
+    return this.http.get('api/movies', { params: { s: movieTitle , page: page.toString()} });
   }
   getMoviesCount(movieTitle: string) {
-  return this.http.get('api/movies/count', { params: { title: movieTitle } });
+  return this.http.get('api/movies/count', { params: { s: movieTitle } });
 }
+  getMovieInfo(movieId: number){
+
+  return this.http.get('api/movie/' + movieId.toString() );
+  }
 }
