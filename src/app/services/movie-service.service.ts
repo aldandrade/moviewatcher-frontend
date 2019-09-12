@@ -26,8 +26,10 @@ export class MovieServiceService {
   getMoviesCount(movieTitle: string) {
   return this.http.get('api/movies/count', { params: { s: movieTitle } });
 }
-  getMovieInfo(movieId: number){
-
-  return this.http.get('api/movie/' + movieId.toString() );
+  getMovieInfo(movieId: string){
+  return this.http.get('api/movie/' + movieId);
+  }
+  favoriteMovie(movieId: string){
+    return this.http.post('api/movie/' + movieId);
   }
 }

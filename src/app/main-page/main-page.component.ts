@@ -48,6 +48,9 @@ export class MainPageComponent implements OnInit {
         error => console.log(error));
       }
   }
+  favoriteMovie(movieId: string): boolean {
+    this.movieSearch.favoriteMovie(movieId);
+  }
 
   handleMovieResponse(response: MovieModel[]) {
     if(response.length > 1){
