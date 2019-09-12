@@ -1,9 +1,12 @@
 .navbar {
-  position: relative;
+  position: absolute  ;
   justify-content: space-between;
 }
 button{
   margin-right: 1rem;
+}
+button:hover{
+  background-color: purple;
 }
 span{
   padding: 1rem;
@@ -16,16 +19,20 @@ span{
    position: relative;
 }
 .poster{
-  height: 30%;
-  width: 20%;
+  padding: 2px;
+  height: 60%;
 }
-.mat-display-3
+.mat-display-2 h2
  {
-   position: relative;
-   top: 6em;
-   left: 15em;
-   margin-top: -180px; /* Half the height */
-   margin-left: -200px; /* Half the width */
+  background-color: purple;
+  padding: 12px;
+  display: block;
+  border: 2px solid;
+  width: fit-content;
+  text-align: center;
+  word-wrap: normal;
+  align-content: center;
+
  }
 
  .searchClass {
@@ -37,8 +44,9 @@ span{
   width: 440px;
 }
 
-.movieCard {
+.mat-card {
   flex: 0 1 calc(20% - 8px);
-  margin-bottom: 18%;
-
+  height: 640px;
+  width: 320px;
+  margin-bottom: 3%;
 }

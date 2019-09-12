@@ -12,7 +12,7 @@ export class MoviePageComponent implements OnInit {
   movie: MovieModel;
   constructor(private route: ActivatedRoute, private movieSearch: MovieServiceService) {
     this.route.params.subscribe(params => this.showMovie(params));
-   }
+  }
 
   ngOnInit() {
   }
@@ -21,9 +21,9 @@ export class MoviePageComponent implements OnInit {
     this.movieSearch.getMovieInfo(movieId).subscribe(
       (response: MovieModel) => this.handleMovieResponse(response),
       error => console.log(error));
-  }
-  handleMovieResponse(response: MovieModel) {
-    this.movie = response;
-  }
+    }
+    handleMovieResponse(response: MovieModel) {
+      this.movie = response;
+    }
 
-}
+  }
