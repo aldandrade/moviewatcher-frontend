@@ -18,6 +18,7 @@ export class MainPageComponent implements OnInit {
   pages: number;
   page: PageEvent;
   movieToShow: Observable<MovieModel>;
+  noMovieToShow = false;
 
   constructor(private movieSearch: MovieServiceService,
               private route: ActivatedRoute,
@@ -49,9 +50,12 @@ export class MainPageComponent implements OnInit {
   }
 
   handleMovieResponse(response: MovieModel[]) {
-    console.log(response);
+    if(response.length > 1){
     this.movieList = response;
+    this.noMovieToShow = true;
   }
+  }
+
 
   goToMovie(movieId: string){
     this.router.navigate(['/movie' + movieId]);
