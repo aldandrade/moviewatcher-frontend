@@ -1,0 +1,14 @@
+.navbar {
+  position: relative;
+  justify-content: space-between;
+}
+button{
+  margin-right: 1rem;
+}
+button:hover{
+  background-color: purple;
+}
+span{
+  padding: 1rem;
+  padding-block-end: 1rem;
+}

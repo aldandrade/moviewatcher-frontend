@@ -11,7 +11,7 @@ import { MovieModel } from '../movie.model';
 export class MoviePageComponent implements OnInit {
   movie: MovieModel;
   constructor(private route: ActivatedRoute, private movieSearch: MovieServiceService) {
-    this.route.params.subscribe(params => this.showMovie(params));
+    this.route.paramMap.subscribe(params => this.showMovie(params.get('id')));
   }
 
   ngOnInit() {
@@ -24,6 +24,11 @@ export class MoviePageComponent implements OnInit {
     }
     handleMovieResponse(response: MovieModel) {
       this.movie = response;
+      console.log(this.movie);
+    }
+
+    favoriteMovie(movieId: string): void {
+      //this.movieSearch.favoriteMovie(movie);
     }
 
   }

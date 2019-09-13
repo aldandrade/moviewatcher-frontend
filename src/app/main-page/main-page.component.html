@@ -1,31 +1,21 @@
 <div fxFlexFill fxLayout="column">
-
-<mat-toolbar color="primary" class="navbar">
-  <div> MovieWatcher </div>
-  <div class="searchClass">
-    <mat-form-field class="searchBar">
-     <input matInput type="text" placeholder="" [(ngModel)]="movieTitle" (keydown.enter)= "search($movieTitle)">
-      <button mat-button *ngIf="movieTitle" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-        <mat-icon>close</mat-icon>
-      </button>
-    </mat-form-field>
-    </div>
-  <div>
-    <button mat-raised-button color="accent">Search</button>
-    <button mat-raised-button color="accent">Favorites</button>
-    <button mat-raised-button color="accent">About</button>
-  </div>
-</mat-toolbar>
 <mat-divider></mat-divider>
 <div fxLayout="column" class="mat-display-2">
   <title>MovieWatcher</title>
   <h2>MovieWatcher</h2>
 </div>
+<div class="searchClass">
+  <mat-form-field class="searchBar">
+   <input matInput type="text" placeholder="" [(ngModel)]="movieTitle" (keydown.enter)= "search($movieTitle)">
+    <button mat-button *ngIf="movieTitle" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  </div>
 <ng-container *ngIf="noMovieToShow; else elseTemplate">
     <div class = "gridDiv" xLayout="column"  fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center" >
         <mat-card *ngFor="let movie of movieList" class="movie-card mat-elevation-z10">
           <div>
-
             <mat-card-header>
                 <mat-card-title fxLayout.xs="column" > <span fxFlexFill>{{movie.title}}</span></mat-card-title>
             </mat-card-header>
@@ -41,13 +31,23 @@
             <mat-card-content>
                 <p>{{movie.title}}</p>
             </mat-card-content>
-            <mat-card-actions  fxLayout.xs="column" class="movie-actions">
+            <mat-card-actions  fxLayout.xs="row" class="movie-actions">
                 <button mat-button class="mat-raised-button mat-primary" (click)="goToMovie(movie.id)">
-                    VIEW MOVIE
+                    View Movie
                 </button>
-                <button mat-button class="mat-raised-button mat-primary" (click)="favoriteMovie(movie.id)"></button>
-            </mat-card-actions>
+                <ng-container *ngIf="movie.favorite; else elseTemplate">
+                  <button mat-button id="unfavoriteButton" class="mat-raised-button" (click)="unfavoriteMovie(movie)">
+                    Unfavorite
+                  </button>
+                </ng-container>
+                <ng-template #elseTemplate>
+                  <button mat-button id="favoriteButton" class="mat-raised-button" (click)="favoriteMovie(movie)">
+                    Favorite
+                  </button>
+                </ng-template>
 
+
+            </mat-card-actions>
         </div>
       </mat-card>
     </div>
@@ -62,6 +62,5 @@
  (page)= "pageEvent = onPageEvent($event)">
 </mat-paginator>
 </div>
-<router-outlet></router-outlet>
 
 

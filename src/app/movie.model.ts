@@ -5,5 +5,5 @@ export class MovieModel {
   type: string;
   posterLink: string;
   year: string;
-  isFavorite: boolean;
+  favorite: boolean;
 }

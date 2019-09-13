@@ -48,10 +48,28 @@ export class MainPageComponent implements OnInit {
         error => console.log(error));
       }
   }
-  favoriteMovie(movieId: string): boolean {
-    this.movieSearch.favoriteMovie(movieId);
-  }
+  favoriteMovie(movie: MovieModel): void {
 
+    this.movieSearch.favoriteMovie(movie).subscribe(
+      response =>{
+        movie.favorite = true;
+      },
+      error => {
+      console.error();
+    }
+
+    );
+  }
+  unfavoriteMovie(movie: MovieModel): void {
+    this.movieSearch.unfavoriteMovie(movie).subscribe(
+      response => {
+        movie.favorite = false;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
   handleMovieResponse(response: MovieModel[]) {
     if(response.length > 1){
     this.movieList = response;
@@ -59,19 +77,15 @@ export class MainPageComponent implements OnInit {
   }
   }
 
-
   goToMovie(movieId: string){
-    this.router.navigate(['/movie' + movieId]);
+    this.router.navigate(['/movie/' + movieId]);
   }
 
   onPageEvent(e){
+    window.scroll(0,0);
     this.currentPage = e.pageIndex + 1;
     this.search(this.movieTitle);
-    /*
-    this.movieSearch.getNextPage(this.movieTitle, this.currentPage).subscribe(
-      (response: MovieModel[]) => this.handleMovieResponse(response),
-    error => console.log(error));
-    */}
+    }
 
   handleMovieCountResponse(response: number){
     this.movieCount = response;

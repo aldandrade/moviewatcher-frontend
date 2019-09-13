@@ -42,11 +42,6 @@
   width: 320px;
   margin-bottom: 3%;
 }
-#favoriteButton{
-  background-color: black;
-  color: white;
-}
-
 #unfavoriteButton{
   background-color: gold;
   color: black;
